@@ -9,7 +9,7 @@ import React from "react";
 const AddTransformationTypePage = async ({
   params: { type },
 }: SearchParamProps) => {
-  const {userId} = auth();
+  const { userId } = auth();
 
   const transformation = transformationTypes[type];
 
@@ -20,12 +20,14 @@ const AddTransformationTypePage = async ({
   return (
     <>
       <Header title={transformation.title} subtitle={transformation.subTitle} />
-      <TransformationForm
-        action="Add"
-        userId={user._id}
-        type={transformation.type as TransformationTypeKey}
-        creditBalance={user.creditBalance}
-      />
+      <section className="mt-10">
+        <TransformationForm
+          action="Add"
+          userId={user._id}
+          type={transformation.type as TransformationTypeKey}
+          creditBalance={user.creditBalance}
+        />
+      </section>
     </>
   );
 };
